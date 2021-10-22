@@ -14,8 +14,8 @@
                 <!-- form-signup-left start -->
                 <div class="left-heading">
                     <p class="h1">Welcome to</p>
-                    <p class="display-2" style="color: #185adb; font-family: 'Lexend Deca', sans-serif; font-weight: 900;">Axtrix</p>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione delectus minima eum, perspiciatis culpa in cum eligendi quidem laborum earum veritatis voluptates iure nisi. Eius iste quibusdam porro asperiores quis!</p>
+                    <p class="display-2" style="color: #185adb; font-weight: 900;">Axtrix</p>
+                    <p class="lead" style="font-size: 1.1rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione delectus minima eum, perspiciatis culpa in cum eligendi quidem laborum earum veritatis voluptates iure nisi. Eius iste quibusdam porro asperiores quis!</p>
                 </div>
                 <!-- form-signup-left end -->
             </div>
@@ -23,64 +23,68 @@
             <div class="col-md-6 col-sm-12 order-1 form-signup-right">
                 <!-- form-signup-right start -->
                 <form class="row g-3">
-                    <div class="col-12">
+                    <div class="col-12 mb-3">
                         <div class="form-firstname">
                             <label for="firstname" class="form-label">First name</label>
                             <input type="text" class="form-control rounded-pill p-3" id="firstname" placeholder="First name" required>
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 mb-3">
                         <div class="form-lastname">
                             <label for="lastname" class="form-label">Last name</label>
                             <input type="text" class="form-control rounded-pill p-3" id="lastname" placeholder="Last name" required>
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="email-phone">Email/Mobile no</label>
-                        <input type="text" class="form-control rounded-pill p-3" id="email-phone" placeholder="Email / Mobile no" required>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-email-mobile">
+                            <label for="email-phone" class=form-label>Email/Mobile no</label>
+                            <input type="text" class="form-control rounded-pill p-3" id="email-phone" placeholder="Email / Mobile no" required>    
+                        </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="form-dob">Date of birth</label>
-                        <div class="row g-3" id="form-dob">
-                            <div class="col-4">
-                                <select class="form-select rounded-pill p-3" id="day">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-dob">
+                            <label for="form-dob" class="form-label">Date of birth</label>
+                            <div class="row g-3" id="form-dob">
+                                <div class="col-4">
+                                    <select class="form-select rounded-pill p-3" id="day">
 
-                                </select>
-                            </div>
+                                    </select>
+                                </div>
 
-                            <div class="col-4">
-                                <select class="form-select rounded-pill p-3" id="month">
+                                <div class="col-4">
+                                    <select class="form-select rounded-pill p-3" id="month">
 
-                                </select>
-                            </div>
+                                    </select>
+                                </div>
 
-                            <div class="col-4">
-                                <select class="form-select rounded-pill p-3" id="year">
+                                <div class="col-4">
+                                    <select class="form-select rounded-pill p-3" id="year">
 
-                                </select>                            
+                                    </select>                            
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <div class="form-password1 set-eye">
                             <label for="password1" class="form-label">Password</label>
                             <input type="password" class="form-control rounded-pill p-3" id="password1" placeholder="Password" required>
-                            <i class="bi bi-eye-slash-fill"></i><i class="bi bi-eye-fill"></i>
+                            <i class="bi bi-eye-slash-fill" id="eye-slash1"></i><i class="bi bi-eye-fill d-none" id="without-slash1"></i>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3">
                         <div class="form-password2 set-eye">
                             <label for="password2" class="form-label">Confirm Password</label>
                             <input type="password" class="form-control rounded-pill p-3" id="password2" placeholder="Confirm password" required>
-                            <i class="bi bi-eye-slash-fill"></i><i class="bi bi-eye-fill"></i>
+                            <i class="bi bi-eye-slash-fill" id="eye-slash2"></i><i class="bi bi-eye-fill d-none" id="without-slash2"></i>
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <div class="d-inline me-3">
                             <input type="radio" name="gender" class="form-check-input" id="radio-male">
                             <label class="form-check-label" for="radio-male">Male</label>
@@ -94,7 +98,7 @@
 
 
 
-                    <div class="col-12">
+                    <div class="col-12 mb-3">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
                         <label class="form-check-label" for="invalidCheck3">
@@ -106,16 +110,19 @@
                       </div>
                     </div>
 
-                    <div class="col-12 text-center">
+                    <div class="col-12 mb-3 text-center">
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary rounded-pill" type="submit">Create account</button>
+                            <button class="btn btn-primary rounded-pill py-3" type="submit">Create account</button>
                         </div>
+                    </div>
+                    <div class="form-goto-login text-center">
+                        <p class="signup-login-link">Already have an account? <a href="#">Log in</a></p>
                     </div>
                   </form>
                 <!-- form-signup-right end -->
             </div>
             </div>
-            <!-- first flex item start -->
+            <!-- first flex item end -->
         </div>
         <!-- container end -->
     </div>
