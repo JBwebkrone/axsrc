@@ -55,3 +55,4 @@ emailPhone.addEventListener("input", () => {
 
 });
 // email phone validation end
+
