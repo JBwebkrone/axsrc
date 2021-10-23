@@ -7,116 +7,15 @@
 <main class="form-signup">
     <div class="container">
         <!-- container start -->
-        <div class="d-flex flex-sm-wrap justify-content-center">
-            <!-- first flex item start -->
-            <div class="row">
-            <div class="col-md-6 col-sm-12 order-0 form-signup-left">
-                <!-- form-signup-left start -->
-                <div class="left-heading">
-                    <p class="h1">Welcome to</p>
-                    <p class="display-2" style="color: #185adb; font-family: 'Lexend Deca', sans-serif; font-weight: 900;">Axtrix</p>
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione delectus minima eum, perspiciatis culpa in cum eligendi quidem laborum earum veritatis voluptates iure nisi. Eius iste quibusdam porro asperiores quis!</p>
+        <form action="" method="post">
+            {% for field in form %}
+                {{ field.errors }}
+                <div class="form-fields mb-3">
+                    {{ field.label_tag }}  {{ field }}
                 </div>
-                <!-- form-signup-left end -->
-            </div>
-            
-            <div class="col-md-6 col-sm-12 order-1 form-signup-right">
-                <!-- form-signup-right start -->
-                <form class="row g-3">
-                    <div class="col-12">
-                        <div class="form-firstname">
-                            <label for="firstname" class="form-label">First name</label>
-                            <input type="text" class="form-control rounded-pill p-3" id="firstname" placeholder="First name" required>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="form-lastname">
-                            <label for="lastname" class="form-label">Last name</label>
-                            <input type="text" class="form-control rounded-pill p-3" id="lastname" placeholder="Last name" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="email-phone">Email/Mobile no</label>
-                        <input type="text" class="form-control rounded-pill p-3" id="email-phone" placeholder="Email / Mobile no" required>
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="form-dob">Date of birth</label>
-                        <div class="row g-3" id="form-dob">
-                            <div class="col-4">
-                                <select class="form-select rounded-pill p-3" id="day">
-
-                                </select>
-                            </div>
-
-                            <div class="col-4">
-                                <select class="form-select rounded-pill p-3" id="month">
-
-                                </select>
-                            </div>
-
-                            <div class="col-4">
-                                <select class="form-select rounded-pill p-3" id="year">
-
-                                </select>                            
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="form-password1 set-eye">
-                            <label for="password1" class="form-label">Password</label>
-                            <input type="password" class="form-control rounded-pill p-3" id="password1" placeholder="Password" required>
-                            <i class="bi bi-eye-slash-fill"></i><i class="bi bi-eye-fill"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-password2 set-eye">
-                            <label for="password2" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control rounded-pill p-3" id="password2" placeholder="Confirm password" required>
-                            <i class="bi bi-eye-slash-fill"></i><i class="bi bi-eye-fill"></i>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="d-inline me-3">
-                            <input type="radio" name="gender" class="form-check-input" id="radio-male">
-                            <label class="form-check-label" for="radio-male">Male</label>
-                        </div>
-
-                        <div class="d-inline">
-                            <input type="radio" name="gender" class="form-check-input" id="radio-female">
-                            <label class="form-check-label" for="radio-female">Female</label>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
-                        <label class="form-check-label" for="invalidCheck3">
-                            I've read & agreed to <a href="">Terms & Conditions</a> and <a href="">Privacy Policy</a>
-                        </label>
-                        <div id="invalidCheck3Feedback" class="invalid-feedback">
-                          You must agree before submitting.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary rounded-pill" type="submit">Create account</button>
-                        </div>
-                    </div>
-                  </form>
-                <!-- form-signup-right end -->
-            </div>
-            </div>
-            <!-- first flex item start -->
-        </div>
+            {% endfor %}
+            <input type="submit" value="Signup now">
+        </form>
         <!-- container end -->
     </div>
 </main>

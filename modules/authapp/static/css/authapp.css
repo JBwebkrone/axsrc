@@ -1,0 +1,31 @@
+
+.set-eye{
+    position: relative;
+}
+
+.bi-eye-slash-fill, .bi-eye-fill{
+    position: absolute;
+    top: 48px;
+    right: 21px;
+}
+
+a{
+    color: #185adb !important;
+}
+
+.color-axtrix{
+    color: #185adb;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #185adb !important;
+    border-color: #185adb !important;
+}
+
+
+/* media queries */
+@media screen and (max-width: 480px){
+    .left-heading{
+        text-align: center;
+    }
+}
