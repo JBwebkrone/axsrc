@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
@@ -33,3 +35,4 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.first_name
+>>>>>>> b7518fbe365aee572bca4196084771f764a6b268
