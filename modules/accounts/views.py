@@ -72,7 +72,7 @@ class PasswordResetView(PasswordContextMixin, FormView):
     email_template_name = 'registration/password_reset_email.html'
     extra_email_context = None
     form_class = PasswordResetForm
-    from_email = "jb.webkrone@gmail.com"
+    from_email = "jb.webkrone@gmail.com" # change it with your email
     html_email_template_name = None
     subject_template_name = 'registration/password_reset_subject.txt'
     success_url = reverse_lazy('password_reset_done')
