@@ -5,10 +5,13 @@
 
 Welcome to Axtrix's documentation!
 ==================================
-
+.. automodule:: modules.accounts
+   :members:
+   
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
 
 
 
