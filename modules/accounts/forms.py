@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-
 from .models import Account
 
 from django.utils.http import urlsafe_base64_encode
@@ -18,11 +17,19 @@ class RegistrationForm(forms.ModelForm):
     """
     Registration form
     """
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
     class Meta:
         model = Account
-        fields = ('email', 'name', 'phone', 'gender', 'date_of_birth', 'picture', 'password1', 'password')
+        fields = ('email', 'first_name', 'last_name', 'phone', 'gender',  'picture', 'password1', 'password')
+
+    def clean_password(self):
+        # Check that the two password entries match
+        password = self.cleaned_data.get("password")
+        password1 = self.cleaned_data.get("password1")
+        if password and password1 and password != password1:
+            raise forms.ValidationError("Passwords don't match")
+        return password1
 
     def save(self, commit=True):
         # Save the provided password in hashed format
@@ -37,20 +44,20 @@ class UserCreationForm(forms.ModelForm):
     """
     A form that creates a user, with no privileges, from the given email and password.
     """
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password1 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
 
     class Meta:
         model = Account
-        fields = ('email', 'name', 'phone', 'gender', 'date_of_birth', 'picture', 'is_staff', 'is_superuser')
+        fields = ('email', 'first_name', 'last_name', 'phone', 'gender',  'picture', 'is_staff', 'is_superuser')
 
-    def clean_password2(self):
+    def clean_password1(self):
         # Check that the two password entries match
+        password = self.cleaned_data.get("password")
         password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
-        if password1 and password2 and password1 != password2:
+        if password and password1 and password != password1:
             raise forms.ValidationError("Passwords don't match")
-        return password2
+        return password1
 
     def save(self, commit=True):
         # Save the provided password in hashed format
@@ -69,7 +76,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = Account
-        fields = ('email', 'name', 'phone', 'date_of_birth', 'gender', 'picture', 'password', 'is_active', 'is_superuser')
+        fields = ('email', 'first_name', 'first_name', 'phone',  'gender', 'picture', 'password', 'is_active', 'is_superuser')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.

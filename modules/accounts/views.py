@@ -54,7 +54,7 @@ class ProfileView(UpdateView):
     ProfileView for updating profile
     """
     model = Account
-    fields = ['name', 'phone', 'date_of_birth', 'gender', 'picture']
+    fields = ['first_name', 'last_name', 'phone',  'gender', 'picture']
     template_name = 'registration/profile.html'
 
     def get_success_url(self):

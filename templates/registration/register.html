@@ -1,5 +1,149 @@
 {% extends "base.html" %}
+{% block title %} Register {% endblock title %}
 
+{% block content %}
+<!-- signup start -->
+
+<main class="form-signup my-2">
+    <div class="container">
+        <!-- container start -->
+        <div class="d-flex flex-sm-wrap justify-content-center">
+            <!-- first flex item start -->
+            <div class="row">
+            <div class="col-md-6 col-sm-12 order-0 form-signup-left">
+                <!-- form-signup-left start -->
+                <div class="left-heading">
+                    <p class="h1">Welcome to</p>
+                    <p class="display-2" style="color: #185adb; font-weight: 900;">Axtrix</p>
+                    <p class="lead" style="font-size: 1.1rem;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione delectus minima eum, perspiciatis culpa in cum eligendi quidem laborum earum veritatis voluptates iure nisi. Eius iste quibusdam porro asperiores quis!</p>
+                </div>
+                <!-- form-signup-left end -->
+            </div>
+            
+            <div class="col-md-6 col-sm-12 order-1 form-signup-right">
+                <!-- form-signup-right start -->
+                <form class="row g-3" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.errors }}
+                    <div class="col-12 mb-3">
+                        <div class="form-firstname">
+                            <label for="{{ form.first_name.auto_id }}" class="form-label">First name</label>
+                            <input type="text" class="form-control rounded-pill p-3" id="{{ form.first_name.auto_id }}" name="{{ form.first_name.name }}" placeholder="First name" required>
+                            <span class="error" id="firstName"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <div class="form-lastname">
+                            <label for="{{ form.last_name.auto_id }}" class="form-label">Last name</label>
+                            <input type="text" class="form-control rounded-pill p-3" id="{{ form.last_name.auto_id }}" name="{{ form.last_name.name }}" placeholder="Last name" required>
+                            <span class="error" id="lastName"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <div class="form-phone">
+                            <label for="{{ form.phone.auto_id }}" class="form-label">Mobile no</label>
+                            <input type="text" class="form-control rounded-pill p-3" id="{{ form.phone.auto_id }}" name="{{ form.phone.name }}" placeholder="Mobile no" required>    
+                        </div>
+                    </div>
+    
+                    {% comment %} <div class="col-md-6 mb-3">
+                        <div class="form-dob">
+                            <label for="{{ form.date_of_birth.auto_id }}" class="form-label">Date of birth</label>
+                            <div class="row g-3" id="{{ form.date_of_birth.auto_id }}">
+                                <div class="col-4">
+                                    <select class="form-select rounded-pill p-3" id="day">
+
+                                    </select>
+                                </div>
+
+                                <div class="col-4">
+                                    <select class="form-select rounded-pill p-3" id="month">
+
+                                    </select>
+                                </div>
+
+                                <div class="col-4">
+                                    <select class="form-select rounded-pill p-3" id="year">
+
+                                    </select>                            
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+
+                    <div class="col-md-12 mb-3">
+                        <div class="form-email">
+                            <label for="{{ form.email.auto_id }}" class="form-label">Email</label>
+                            <input type="email" class="form-control rounded-pill p-3" id="{{ form.email.auto_id }}" name="{{ form.email.name }}" placeholder="Email" required>    
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="form-password set-eye">
+                            <label for="{{ form.password.auto_id }}" class="form-label">Password</label>
+                            <input type="password" class="form-control rounded-pill p-3" id="{{ form.password.auto_id }}" name="{{ form.password.name }}" placeholder="Password" required>
+                            <i class="bi bi-eye-slash-fill" id="eye-slash1"></i><i class="bi bi-eye-fill d-none" id="without-slash1"></i>
+                            <span class="error" id="passwordError"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-password1 set-eye">
+                            <label for="{{ form.password1.auto_id }}" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control rounded-pill p-3" id="{{ form.password1.auto_id }}" name="{{ form.password1.name }}" placeholder="Confirm password" required>
+                            <i class="bi bi-eye-slash-fill" id="eye-slash2"></i><i class="bi bi-eye-fill d-none" id="without-slash2"></i>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-12 mb-3">
+                        <label for="{{ form.gender.auto_id }}" class="form-label">Gender</label>
+                        <select class="form-select rounded-pill p-3" aria-label="Default select" id="{{ form.gender.auto_id }}" name="gender">
+                            <option class="rounded-pill p-3" value="m" selected>Male</option>
+                            <option class="rounded-pill p-3" value="f">Female</option>
+                        </select>
+                        <span class="error my-1" id="genderError"></span>
+                    </div>
+
+
+
+                    <div class="col-12 mb-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck3" aria-describedby="invalidCheck3Feedback" required>
+                        <label class="form-check-label" for="invalidCheck3">
+                            I've read & agreed to <a href="">Terms & Conditions</a> and <a href="">Privacy Policy</a>
+                        </label>
+                        <div id="invalidCheck3Feedback" class="invalid-feedback">
+                          You must agree before submitting.
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mb-3 text-center">
+                        <div class="d-grid gap-2">
+                            <input class="btn btn-primary rounded-pill py-3" id="signupButton" type="submit" value="Create account">
+                        </div>
+                    </div>
+                    <div class="form-goto-login text-center">
+                        <p class="signup-login-link">Already have an account? <a href="#">Log in</a></p>
+                    </div>
+                  </form>
+                <!-- form-signup-right end -->
+            </div>
+            </div>
+            <!-- first flex item end -->
+        </div>
+        <!-- container end -->
+    </div>
+</main>
+
+<!-- signup end -->
+<script>
+</script>
+{% endblock content %}
+
+
+{% comment %} 
 {% block content %}
 <div class="container">
     <div class="row justify-content-center">
@@ -20,3 +164,4 @@
 </div>
 
 {% endblock %}
+ {% endcomment %}

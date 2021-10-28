@@ -16,12 +16,21 @@ a{
 .color-axtrix{
     color: #185adb;
 }
+
 .btn-primary {
     color: #fff;
     background-color: #185adb !important;
     border-color: #185adb !important;
 }
 
+.errorlist {
+    list-style: none;
+    color: red;
+}
+
+.error{
+    color: red;
+}
 
 /* media queries */
 @media screen and (max-width: 480px){
